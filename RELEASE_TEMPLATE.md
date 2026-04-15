@@ -17,6 +17,10 @@ Flash the image with Balena Etcher, Raspberry Pi Imager, or `dd`.
 
 Recommended target: NVMe SSD.
 
+USB storage may also work when the board firmware is set to boot from USB storage.
+
+Do not flash this image to a microSD card for the board's microSD slot. This release is prepared for NVMe or USB storage, not SD-slot boot.
+
 ### Highlights
 
 - Android TV 14
@@ -35,6 +39,7 @@ Recommended target: NVMe SSD.
 - Widevine/DRM status is limited and may not satisfy paid streaming apps
 - DisplayPort 4K120 output is not currently enabled
 - Some 4K50 HEVC Main10 / HDR IPTV streams may stutter across players
+- microSD slot boot is not currently supported by this release image
 
 ### Recommended Display Setup
 

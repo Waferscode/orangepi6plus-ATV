@@ -27,6 +27,7 @@ This image is intended as a community alternative to the vendor Android image fo
 - Widevine/DRM status is limited and may not satisfy paid streaming apps
 - DisplayPort 4K120 output is not currently enabled
 - Some 4K50 HEVC Main10 / HDR IPTV streams may stutter across players
+- microSD slot boot is not currently supported by this release image
 - First boot may take several minutes
 
 ## Download
@@ -53,6 +54,10 @@ orangepi6plus-atv14-vX.Y.img.xz.sha256
 7. Insert the drive into the Orange Pi 6 Plus and boot.
 
 Recommended target: NVMe SSD.
+
+USB storage may also work when the board firmware is set to boot from USB storage.
+
+Do not flash this release image to a microSD card for the board's microSD slot. The current Android boot path is prepared for NVMe or USB storage, not SD-slot boot.
 
 Flashing will erase the selected drive. Double-check the target before writing the image.
 
@@ -99,7 +104,7 @@ Without this, many TVs expose only 4K30 to the board.
 When reporting an issue, include:
 
 - TV or monitor model
-- Boot media type, for example NVMe, USB, or SD
+- Boot media type, for example NVMe or USB
 - Display mode, for example 3840x2160@60
 - Whether audio is HDMI/DP, 3.5mm, USB, or Bluetooth
 - A short description of what was working before the issue
