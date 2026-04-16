@@ -37,13 +37,6 @@ Images will be published from the GitHub Releases page:
 
 https://github.com/Waferscode/orangepi6plus-ATV/releases
 
-Recommended release format:
-
-```text
-orangepi6plus-atv14-vX.Y-fastboot.zip
-orangepi6plus-atv14-vX.Y-fastboot.zip.sha256
-```
-
 ## Flashing With Fastboot
 
 Fastboot flashing is the recommended installation method for this build.
