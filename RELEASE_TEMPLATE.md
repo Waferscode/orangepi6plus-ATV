@@ -8,18 +8,29 @@ Experimental Android TV 14 image for Orange Pi 6 Plus.
 
 ### Download
 
-- `orangepi6plus-atv14-vX.Y.img.xz`
-- `orangepi6plus-atv14-vX.Y.img.xz.sha256`
+- `orangepi6plus-atv14-vX.Y-fastboot.zip`
+- `orangepi6plus-atv14-vX.Y-fastboot.zip.sha256`
 
 ### Flashing
 
-Flash the image with Balena Etcher, Raspberry Pi Imager, or `dd`.
+Fastboot flashing is the recommended installation method.
 
 Recommended target: NVMe SSD.
 
-USB storage may also work when the board firmware is set to boot from USB storage.
+Linux:
 
-Do not flash this image to a microSD card for the board's microSD slot. This release is prepared for NVMe or USB storage, not SD-slot boot.
+```bash
+chmod +x android_flush_images.sh
+./android_flush_images.sh -t nvme -d sky1
+```
+
+Windows:
+
+```bat
+android_flush_images.bat nvme sky1
+```
+
+Raw USB / Balena Etcher images are experimental for this board.
 
 ### Highlights
 
@@ -39,7 +50,8 @@ Do not flash this image to a microSD card for the board's microSD slot. This rel
 - Widevine/DRM status is limited and may not satisfy paid streaming apps
 - DisplayPort 4K120 output is not currently enabled
 - Some 4K50 HEVC Main10 / HDR IPTV streams may stutter across players
-- microSD slot boot is not currently supported by this release image
+- Balena Etcher / raw USB images are experimental
+- microSD slot boot is not currently supported
 
 ### Recommended Display Setup
 
@@ -52,5 +64,5 @@ Enhanced HDMI / HDMI 2.0 / HDMI Ultra HD Deep Color / Input Signal Plus
 ### Checksums
 
 ```text
-<paste sha256sum here>  orangepi6plus-atv14-vX.Y.img.xz
+<paste sha256sum here>  orangepi6plus-atv14-vX.Y-fastboot.zip
 ```

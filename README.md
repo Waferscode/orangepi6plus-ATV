@@ -27,7 +27,8 @@ This image is intended as a community alternative to the vendor Android image fo
 - Widevine/DRM status is limited and may not satisfy paid streaming apps
 - DisplayPort 4K120 output is not currently enabled
 - Some 4K50 HEVC Main10 / HDR IPTV streams may stutter across players
-- microSD slot boot is not currently supported by this release image
+- Balena Etcher / raw USB images are experimental
+- microSD slot boot is not currently supported
 - First boot may take several minutes
 
 ## Download
@@ -39,43 +40,42 @@ https://github.com/Waferscode/orangepi6plus-ATV/releases
 Recommended release format:
 
 ```text
-orangepi6plus-atv14-vX.Y.img.xz
-orangepi6plus-atv14-vX.Y.img.xz.sha256
+orangepi6plus-atv14-vX.Y-fastboot.zip
+orangepi6plus-atv14-vX.Y-fastboot.zip.sha256
 ```
 
-## Flashing With Balena Etcher
+## Flashing With Fastboot
 
-1. Download the latest image from Releases.
-2. Open Balena Etcher.
-3. Select the downloaded image.
-4. Select the target drive.
-5. Click Flash.
-6. Safely eject the drive when flashing completes.
-7. Insert the drive into the Orange Pi 6 Plus and boot.
+Fastboot flashing is the recommended installation method for this build.
 
 Recommended target: NVMe SSD.
 
-USB storage may also work when the board firmware is set to boot from USB storage.
+1. Download the latest `fastboot.zip` release.
+2. Extract the zip.
+3. Put the Orange Pi 6 Plus into fastboot mode.
+4. Connect USB from the host computer to the board.
+5. Run the flash script from inside the extracted folder.
 
-Do not flash this release image to a microSD card for the board's microSD slot. The current Android boot path is prepared for NVMe or USB storage, not SD-slot boot.
-
-Flashing will erase the selected drive. Double-check the target before writing the image.
-
-## Flashing From Linux
-
-Replace `/dev/sdX` with the actual target drive. Do not use a partition such as `/dev/sdX1`.
+Linux:
 
 ```bash
-xz -dk orangepi6plus-atv14-vX.Y.img.xz
-sudo dd if=orangepi6plus-atv14-vX.Y.img of=/dev/sdX bs=16M status=progress conv=fsync
-sync
+chmod +x android_flush_images.sh
+./android_flush_images.sh -t nvme -d sky1
 ```
 
-Optional checksum verification:
+Windows:
 
-```bash
-sha256sum -c orangepi6plus-atv14-vX.Y.img.xz.sha256
+```bat
+android_flush_images.bat nvme sky1
 ```
+
+Flashing will erase Android partitions and userdata on the selected target.
+
+## USB / Etcher Images
+
+Raw USB images are experimental for this board. Fastboot works reliably because it talks directly to the CIX bootloader, flashes the GPT and partitions, selects the boot target, and finishes with the board-specific boot command.
+
+Do not flash this release to the board's microSD slot. The current Android boot path is prepared around NVMe/fastboot, not SD-slot boot.
 
 ## Display Setup
 
