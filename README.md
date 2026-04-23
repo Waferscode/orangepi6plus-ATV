@@ -1,6 +1,9 @@
 # Orange Pi 6 Plus Android TV 14
 
 Experimental Android TV 14 image for the Orange Pi 6 Plus.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7aa33c82-fea6-4387-93b6-339199f89b12" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/148aedb7-0ec6-444d-ae95-f9dcdbf452bf" />
+
 
 This repository currently provides a complete bootable image only. Source code and build scripts are not included at this time.
 
