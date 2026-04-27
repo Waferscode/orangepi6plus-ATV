@@ -22,18 +22,13 @@ This image is intended as a community alternative to the vendor Android image fo
 - YouTube for Android TV working
 - On-screen keyboard working
 - Expanded userdata tested on a 256GB NVMe drive
-
+ Widevine/DRM status is Level 3 
 ### Known Limitations
 
 - Experimental community image
 - Bootloader remains unlocked
-- Google Play certification is not guaranteed
-- Widevine/DRM status is limited and may not satisfy paid streaming apps
-- DisplayPort 4K120 output is not currently enabled
 - Some 4K50 HEVC Main10 / HDR IPTV streams may stutter across players
-- Balena Etcher / raw USB images are experimental
-- microSD slot boot is not currently supported
-- First boot may take several minutes
+- Currently only boots through Nvme slot 1
 
 ## Download
 
@@ -47,11 +42,11 @@ Fastboot flashing is the recommended installation method for this build.
 
 Recommended target: NVMe SSD.
 
-1. Download the latest `fastboot.zip` release.
-2. Extract the zip.
-3. Put the Orange Pi 6 Plus into fastboot mode.
-4. Connect USB from the host computer to the board.
-5. Run the flash script from inside the extracted folder.
+1. Download latest Release Zip
+2. Extract img from zip
+3. Download & Install Balena Etcher
+4. Etch the img to a NVME SSD
+5. Put SSD in Slot 1(Middle) on Board
 
 Linux:
 
